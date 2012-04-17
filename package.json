@@ -1,0 +1,24 @@
+{
+  "author": "Nijikokun <nijiko@goodybag.com> (http://blog.nexua.org)",
+  "name": "drink",
+  "description": "Terminal Application Helper for Sessions and More.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/Nijikokun/drink",
+  "license": "AOL/MIT",
+  "keywords": [
+    "terminal",
+    "server",
+    "session",
+    "helper"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Nijikokun/drink.git"
+  },
+  "main": "lib/drink.js",
+  "engine": {
+    "node": ">=0.4"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
