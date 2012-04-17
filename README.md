@@ -14,7 +14,7 @@ No. Seriously. It also has humour or not for those serious types. Javascript and
 
 The easiest way to install Drink is to utilize **npm**
 
-`npm install Drink`
+`npm install drink`
 
 Then inside your script, require drink.
 
