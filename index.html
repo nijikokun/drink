@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Drink Coffee by Nijikokun</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Drink Coffee</h1>
+        <p>Drink Coffee. Everyday. Terminal Application Helper, Keep alive sessions and more!</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/Nijikokun/drink" class="button fork"><strong>Fork On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/Nijikokun/drink/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/Nijikokun/drink/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>Drink.coffee</h1>
+
+<p>Drink Coffee, or JavaScript. Daily.</p>
+
+<h1>Overview</h1>
+
+<p><strong>Drink</strong> is a simple, and easy to use Terminal Helper. It helps you keep sessions alive, process input, send output, and more in a quirky or direct sytnax.</p>
+
+<p>No. Seriously. It has humour or not for those serious types. Both Javascript and Coffeescript are supported, examples shown below are in coffee-script.</p>
+
+<h1>Installation</h1>
+
+<p>The easiest way to install Drink is to utilize <strong>npm</strong></p>
+
+<p><code>npm install drink</code></p>
+
+<p>Then inside your script, require drink.</p>
+
+<p><code>drink = require 'drink'</code></p>
+
+<h1>Use Cases</h1>
+
+<p>What can drink be used for? Simple. A lot. Everything from CLI to IRC Clients to Zebra Tracking Utilities. Seriously.
+Drink allows you to simply keep alive a terminal session. Think about that. You can make a Twitter Client, Reddit Poster, quite literally anything.</p>
+
+<p>Now you see it's power.</p>
+
+<h1>Usage</h1>
+
+<p>Utilizing Drink is very simple. For a basic keep alive all you need is this:</p>
+
+<div class="highlight">
+<pre><span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+</pre>
+</div>
+
+
+<p>This will initialize drink with the current terminal process allowing it to keep your session alive and accept input information.
+More often than naught you might want it to process for a certain amount of times or at a specific rate, Drink supports this:</p>
+
+<div class="highlight">
+<pre><span class="c1"># Default Option Settings</span>
+<span class="c1"># rate - the amount of time in-between pours (happens while stirring), in milliseconds.</span>
+<span class="c1"># for - the amount of pours you want drink to process.</span>
+<span class="c1"># debug - numerical / boolean, 2 is to show pour amounts.</span>
+<span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span><span class="p">,</span> <span class="nv">rate: </span><span class="mi">1000</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">debug: </span><span class="kc">false</span>
+
+<span class="c1"># Begin Stirring</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+</pre>
+</div>
+
+
+<h2>Stirring</h2>
+
+<p>In Drink, keeping the Session alive in terminal is considered <code>stirring</code>, just as with the basic usage.</p>
+
+<div class="highlight">
+<pre><span class="c1"># Setup Drink</span>
+<span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span><span class="p">,</span> <span class="p">{</span> <span class="nv">rate: </span><span class="mi">1000</span><span class="p">,</span> <span class="k">for</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">debug: </span><span class="kc">false</span> <span class="p">}</span>
+
+<span class="c1"># Start Stirring as Drink Pours</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+</pre>
+</div>
+
+
+<p>For those who think they may not remember this, or are confused as to what it does, you can also use it's aliased function <code>start</code>:</p>
+
+<div class="highlight">
+<pre><span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">start</span>
+</pre>
+</div>
+
+
+<h2>Spilling</h2>
+
+<p>To stop the session from stirring you simply <code>spill</code> the session or cup out.</p>
+
+<div class="highlight">
+<pre><span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span>
+
+<span class="c1"># Initialize the session</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+
+<span class="c1"># Kill or Exit the session.</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">spill</span>
+</pre>
+</div>
+
+
+<p>Once again, this also has an alias called <code>exit</code></p>
+
+<h1>Terminal Output Methods</h1>
+
+<h2>Sipping</h2>
+
+<p>Are you one of those who don't like fully gulping down a cup? Well just sip on it. <em>Spec Note: This may change</em></p>
+
+<p>Sipping allows you to push to console or terminal without appending newlines.</p>
+
+<div class="highlight">
+<pre><span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+
+<span class="nx">Coffee</span><span class="p">.</span><span class="nx">sip</span> <span class="s">"Hello "</span>
+<span class="nx">Coffee</span><span class="p">.</span><span class="nx">sip</span> <span class="s">"World!"</span>
+</pre>
+</div>
+
+
+<p>Aliased Method: <code>print</code></p>
+
+<h2>Gulping</h2>
+
+<p>Maybe you do prefer to gulp down some information; We certainly can help provide that functionality. <em>Spec Note: This may change</em></p>
+
+<p>Same as sip, with a newline appended.</p>
+
+<div class="highlight">
+<pre><span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+
+<span class="nx">Coffee</span><span class="p">.</span><span class="nx">gulp</span> <span class="s">"Hello"</span>
+<span class="nx">Coffee</span><span class="p">.</span><span class="nx">gulp</span> <span class="s">"World!"</span>
+</pre>
+</div>
+
+
+<p>Aliased Method: <code>printnl</code></p>
+
+<h1>Terminal Input Methods</h1>
+
+<h2>Single Character Input</h2>
+
+<p>Useful for those Y/N Questions a lot of people seem to bring up in conversation. For those quick little bursts of information we simply use an <code>onTap</code> method with a nice callback.</p>
+
+<div class="highlight">
+<pre><span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+
+<span class="nx">Coffee</span><span class="p">.</span><span class="nx">onTap</span><span class="s">';'</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="c1"># We want to exit now. They used a semi-colon, my weakness!</span>
+  <span class="c1"># We also bind this, so you can easily manipulate the parent.</span>
+  <span class="nx">do</span> <span class="k">this</span><span class="p">.</span><span class="nx">spill</span>
+</pre>
+</div>
+
+
+<p>Aliased Method: <code>onKey</code></p>
+
+<p>There is a little more functionality, such as meta-keys:</p>
+
+<pre><code>Coffee.onTap({ name: 'd', ctrl: true }, -&gt;
+  this.gulp "Hello World!"
+)
+</code></pre>
+
+<p>Supports <code>ctrl</code>, <code>meta</code>, <code>shift</code></p>
+
+<h2>Data Input</h2>
+
+<p>For those who need a mouthfull of information we simply use an <code>onFill</code> method with a nice callback.</p>
+
+<div class="highlight">
+<pre><span class="nv">Coffee = </span><span class="nx">drink</span> <span class="nx">process</span>
+<span class="nx">do</span> <span class="nx">Coffee</span><span class="p">.</span><span class="nx">stir</span>
+
+<span class="nx">Coffee</span><span class="p">.</span><span class="nx">onFill</span><span class="s">'exit;'</span><span class="p">,</span> <span class="o">-&gt;</span>
+  <span class="c1"># We want to exit now. They typed exit!</span>
+  <span class="c1"># We also bind this, so you can easily manipulate the parent.</span>
+  <span class="nx">do</span> <span class="k">this</span><span class="p">.</span><span class="nx">spill</span>
+</pre>
+</div>
+
+
+<p>Aliased Method: <code>onData</code></p>
+
+<p>Let's say you just want to get information, in general?
+The first argument passed is a binary output from the process, do with this as you wish.
+The second argument passed is a string output that has been *<em>pre-trimmed</em> by drink. Enjoy~</p>
+
+<pre><code>Coffee.onFillnull, (chunk, data) -&gt;
+  this.gulp "You said: " + data
+</code></pre>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/Nijikokun">Nijikokun</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="http://twitter.com/#!/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><!--<![endif]-->
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-30936026-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
