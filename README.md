@@ -1,14 +1,14 @@
 # Drink.coffee
 
-Drink Coffee. or Java*Script*. Daily.
+Drink Coffee, or JavaScript. Daily.
 
-# 
+#
 
 ### Overview
 
-Small, beautiful, elegant, and easy to use Terminal Keep-Alive Module.
+**Drink** is a simple, and easy to use Terminal Helper. It helps you keep sessions alive, process input, send output, and more in a quirky or direct sytnax.
 
-No. Seriously. It also has humour or not for those serious types. Javascript and Coffeescript supported, examples shown are in coffee-script.
+No. Seriously. It has humour or not for those serious types. Both Javascript and Coffeescript are supported, examples shown below are in coffee-script.
 
 ### Installation
 
@@ -20,16 +20,35 @@ Then inside your script, require drink.
 
 `drink = require 'drink'`
 
+### Use Cases
+
+What can drink be used for? Simple. A lot. Everything from CLI to IRC Clients to Zebra Tracking Utilities. Seriously.
+Drink allows you to simply keep alive a terminal session. Think about that. You can make a Twitter Client, Reddit Poster, quite literally anything.
+
+Now you see it's power.
+
 ### Usage
 
 Utilizing Drink is very simple. For a basic keep alive all you need is this:
 
 ``` coffee
 Coffee = drink process
-Coffee.stir()
+do Coffee.stir
 ```
 
-And it will keep terminal open.
+This will initialize drink with the current terminal process allowing it to keep your session alive and accept input information.
+More often than naught you might want it to process for a certain amount of times or at a specific rate, Drink supports this:
+
+``` coffee
+# Default Option Settings
+# rate - the amount of time in-between pours, in milliseconds.
+# for - the amount of pours you want drink to process.
+# debug - numerical / boolean, 2 is to show pour amounts.
+Coffee = drink process, rate: 1000, for: 0, debug: false
+
+# Begin Stirring
+do Coffee.stir
+```
 
 #### Stirring
 
@@ -141,12 +160,14 @@ Coffee.onFill('exit;', ->
 )
 ```
 
-Aliased Method: `onKey`
+Aliased Method: `onData`
 
 Let's say you just want to get information, in general?
+The first argument passed is a binary output from the process, do with this as you wish.
+The second argument passed is a string output that has been **pre-trimmed* by drink. Enjoy~
 
 ```
-Coffee.onFill(null, (data) ->
+Coffee.onFill(null, (chunk, data) ->
   this.gulp "You said: " + data
 )
 ```
