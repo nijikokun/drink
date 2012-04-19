@@ -2,15 +2,13 @@
 
 Drink Coffee, or JavaScript. Daily.
 
-#
-
-### Overview
+# Overview
 
 **Drink** is a simple, and easy to use Terminal Helper. It helps you keep sessions alive, process input, send output, and more in a quirky or direct sytnax.
 
 No. Seriously. It has humour or not for those serious types. Both Javascript and Coffeescript are supported, examples shown below are in coffee-script.
 
-### Installation
+# Installation
 
 The easiest way to install Drink is to utilize **npm**
 
@@ -20,14 +18,14 @@ Then inside your script, require drink.
 
 `drink = require 'drink'`
 
-### Use Cases
+# Use Cases
 
 What can drink be used for? Simple. A lot. Everything from CLI to IRC Clients to Zebra Tracking Utilities. Seriously.
 Drink allows you to simply keep alive a terminal session. Think about that. You can make a Twitter Client, Reddit Poster, quite literally anything.
 
 Now you see it's power.
 
-### Usage
+# Usage
 
 Utilizing Drink is very simple. For a basic keep alive all you need is this:
 
@@ -50,7 +48,7 @@ Coffee = drink process, rate: 1000, for: 0, debug: false
 do Coffee.stir
 ```
 
-#### Stirring
+## Stirring
 
 In Drink, keeping the Session alive in terminal is considered `stirring`, just as with the basic usage.
 
@@ -62,14 +60,14 @@ Coffee = drink process, { rate: 1000, for: 0, debug: false }
 do Coffee.stir
 ```
 
-For those who think they may not remember this, or are confused as to what it does, you can also use it's aliased function `start`
+For those who think they may not remember this, or are confused as to what it does, you can also use it's aliased function `start`:
 
 ``` coffee
 Coffee = drink process
 do Coffee.start
 ```
 
-#### Spilling
+## Spilling
 
 To stop the session from stirring you simply `spill` the session or cup out.
 
@@ -85,9 +83,9 @@ do Coffee.spill
 
 Once again, this also has an alias called `exit`
 
-### Terminal Output Methods
+## Terminal Output Methods
 
-#### Sipping
+### Sipping
 
 Are you one of those who don't like fully gulping down a cup? Well just sip on it. *Spec Note: This may change*
 
@@ -103,7 +101,7 @@ Coffee.sip "World!"
 
 Aliased Method: `print`
 
-#### Gulping
+### Gulping
 
 Maybe you do prefer to gulp down some information; We certainly can help provide that functionality. *Spec Note: This may change*
 
@@ -119,7 +117,7 @@ Coffee.gulp "World!"
 
 Aliased Method: `printnl`
 
-### Terminal Input Methods
+## Terminal Input Methods
 
 ### Single Character Input
 
