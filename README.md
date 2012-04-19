@@ -83,9 +83,9 @@ do Coffee.spill
 
 Once again, this also has an alias called `exit`
 
-## Terminal Output Methods
+# Terminal Output Methods
 
-### Sipping
+## Sipping
 
 Are you one of those who don't like fully gulping down a cup? Well just sip on it. *Spec Note: This may change*
 
@@ -101,7 +101,7 @@ Coffee.sip "World!"
 
 Aliased Method: `print`
 
-### Gulping
+## Gulping
 
 Maybe you do prefer to gulp down some information; We certainly can help provide that functionality. *Spec Note: This may change*
 
@@ -117,9 +117,9 @@ Coffee.gulp "World!"
 
 Aliased Method: `printnl`
 
-## Terminal Input Methods
+# Terminal Input Methods
 
-### Single Character Input
+## Single Character Input
 
 Useful for those Y/N Questions a lot of people seem to bring up in conversation. For those quick little bursts of information we simply use an `onTap` method with a nice callback.
 
@@ -145,7 +145,7 @@ Coffee.onTap({ name: 'd', ctrl: true }, ->
 
 Supports `ctrl`, `meta`, `shift`
 
-### Data Input
+## Data Input
 
 For those who need a mouthfull of information we simply use an `onFill` method with a nice callback.
 
