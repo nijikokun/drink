@@ -41,7 +41,7 @@ More often than naught you might want it to process for a certain amount of time
 
 ``` coffee
 # Default Option Settings
-# rate - the amount of time in-between pours, in milliseconds.
+# rate - the amount of time in-between pours (happens while stirring), in milliseconds.
 # for - the amount of pours you want drink to process.
 # debug - numerical / boolean, 2 is to show pour amounts.
 Coffee = drink process, rate: 1000, for: 0, debug: false
@@ -55,15 +55,18 @@ do Coffee.stir
 In Drink, keeping the Session alive in terminal is considered `stirring`, just as with the basic usage.
 
 ``` coffee
-Coffee = drink process
-Coffee.stir()
+# Setup Drink
+Coffee = drink process, { rate: 1000, for: 0, debug: false }
+
+# Start Stirring as Drink Pours
+do Coffee.stir
 ```
 
 For those who think they may not remember this, or are confused as to what it does, you can also use it's aliased function `start`
 
 ``` coffee
 Coffee = drink process
-Coffee.start()
+do Coffee.start
 ```
 
 #### Spilling
@@ -74,10 +77,10 @@ To stop the session from stirring you simply `spill` the session or cup out.
 Coffee = drink process
 
 # Initialize the session
-Coffee.stir()
+do Coffee.stir
 
 # Kill or Exit the session.
-Coffee.spill()
+do Coffee.spill
 ```
 
 Once again, this also has an alias called `exit`
@@ -92,10 +95,10 @@ Sipping allows you to push to console or terminal without appending newlines.
 
 ``` coffee
 Coffee = drink process
-Coffee.stir()
+do Coffee.stir
 
-Coffee.sip("Hello ")
-Coffee.sip("World!")
+Coffee.sip "Hello "
+Coffee.sip "World!"
 ```
 
 Aliased Method: `print`
@@ -108,10 +111,10 @@ Same as sip, with a newline appended.
 
 ``` coffee
 Coffee = drink process
-Coffee.stir()
+do Coffee.stir
 
-Coffee.gulp("Hello")
-Coffee.gulp("World!")
+Coffee.gulp "Hello"
+Coffee.gulp "World!"
 ```
 
 Aliased Method: `printnl`
@@ -124,13 +127,12 @@ Useful for those Y/N Questions a lot of people seem to bring up in conversation.
 
 ``` coffee
 Coffee = drink process
-Coffee.stir()
+do Coffee.stir
 
-Coffee.onTap(';', ->
+Coffee.onTap';', ->
   # We want to exit now. They used a semi-colon, my weakness!
   # We also bind this, so you can easily manipulate the parent.
-  this.spill()
-)
+  do this.spill
 ```
 
 Aliased Method: `onKey`
@@ -151,13 +153,12 @@ For those who need a mouthfull of information we simply use an `onFill` method w
 
 ``` coffee
 Coffee = drink process
-Coffee.stir()
+do Coffee.stir
 
-Coffee.onFill('exit;', ->
+Coffee.onFill'exit;', ->
   # We want to exit now. They typed exit!
   # We also bind this, so you can easily manipulate the parent.
-  this.spill()
-)
+  do this.spill
 ```
 
 Aliased Method: `onData`
@@ -167,7 +168,6 @@ The first argument passed is a binary output from the process, do with this as y
 The second argument passed is a string output that has been **pre-trimmed* by drink. Enjoy~
 
 ```
-Coffee.onFill(null, (chunk, data) ->
+Coffee.onFillnull, (chunk, data) ->
   this.gulp "You said: " + data
-)
 ```
