@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/Nijikokun/drink.png)](http://travis-ci.org/Nijikokun/drink)
 # Drink.coffee
 
 Drink Coffee, or JavaScript. Daily.
